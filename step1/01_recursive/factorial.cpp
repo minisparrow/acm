@@ -11,6 +11,7 @@ int fact(int n){
 int main(){
     int n; 
     int result;
+    cout<<"please input a integer number"<<endl;
     cin>>n;
     result = fact(n);
     cout<<result<<endl;
