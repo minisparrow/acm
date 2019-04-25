@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/stack.dir/stack_example.cpp.o  -o stack -rdynamic 

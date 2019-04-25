@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/queue.dir/queue_example.cpp.o  -o queue -rdynamic 
