@@ -1,6 +1,6 @@
 # ACM Basic
 
-[TOC]
+[toc]
 
 ## stack 
 
