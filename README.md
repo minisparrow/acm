@@ -1,6 +1,7 @@
 # ACM Basic
 
-[markdown-toc]
+<!-- TOC -->autoauto- [ACM Basic](#acm-basic)auto    - [stack](#stack)auto    - [queue](#queue)auto    - [dynamic programming](#dynamic-programming)auto        - [1. longest_common_sequence  最长公共子序列问题](#1-longest_common_sequence--最长公共子序列问题)auto        - [2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#2-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)auto        - [3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#3-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)auto        - [4. package_problem 背包问题.](#4-package_problem-背包问题)autoauto<!-- /TOC -->
+
 
 ## stack 
 
