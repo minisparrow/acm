@@ -1,26 +1,36 @@
-# ACM Basic
+# 1. ACM Basic
 
-<!-- TOC -->autoauto- [ACM Basic](#acm-basic)auto    - [stack](#stack)auto    - [queue](#queue)auto    - [dynamic programming](#dynamic-programming)auto        - [1. longest_common_sequence  最长公共子序列问题](#1-longest_common_sequence--最长公共子序列问题)auto        - [2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#2-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)auto        - [3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#3-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)auto        - [4. package_problem 背包问题.](#4-package_problem-背包问题)autoauto<!-- /TOC -->
+<!-- TOC -->
 
+- [1. ACM Basic](#1-acm-basic)
+    - [1.1. Stack](#11-stack)
+    - [1.2. Queue](#12-queue)
+    - [1.3. Dynamic Programming](#13-dynamic-programming)
+        - [1.3.1. longest_common_sequence  最长公共子序列问题](#131-longest_common_sequence--最长公共子序列问题)
+        - [1.3.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#132-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
+        - [1.3.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#133-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)
+        - [1.3.4. package_problem 背包问题.](#134-package_problem-背包问题)
 
-## stack 
+<!-- /TOC -->
+
+## 1.1. Stack
 
 push()  压栈  
 pop()   弹栈
 
 查看栈顶元素 top()
 
-## queue 
+## 1.2. Queue
 
 push()  压入队列  
 pop()   弹出队列
 查看队首元素 front()
 
-## dynamic programming 
+## 1.3. Dynamic Programming
 
 动态规划可以认为是剪枝的递归算法
 
-### 1. longest_common_sequence  最长公共子序列问题
+### 1.3.1. longest_common_sequence  最长公共子序列问题
 问题描述
 ```bash
 n = 6
@@ -29,7 +39,7 @@ s = "abcdec"
 t = "becdce"
 最长公共子子序列为: bcde
 ```
-### 2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。
+### 1.3.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。
 求和等于A值问题
 ```bash
 从一堆数字中选择几个，使得能够拼出和为SUM的数
@@ -38,7 +48,7 @@ Sum = 9
 选择arr[i]
 ```
 
-### 3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。
+### 1.3.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。
 
 相邻数字求和最大问题描述
 ```bash
@@ -46,15 +56,7 @@ Sum = 9
 arr = [1,2,4,1,7,8,3]
 求 max(Sum(arr[i])),i不相邻
 ```
-### 4. package_problem 背包问题. 
-背包问题描述
-```bash
-n = 4
-w = 2, 1, 3, 2
-v = 3, 2, 4, 2
-W = 5
-n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使得总重量为W，价值总和最高的方案
-```
+
 动态规划与递归时间比较
 ```bash
 $cd step1/2.3_dynamic_programming
@@ -65,3 +67,14 @@ $python interval_sum_max.py
 31.0
 ('times', 59.97750972074938)
 ```
+
+### 1.3.4. package_problem 背包问题. 
+背包问题描述
+```bash
+n = 4
+w = 2, 1, 3, 2
+v = 3, 2, 4, 2
+W = 5
+n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使得总重量为W，价值总和最高的方案
+```
+
