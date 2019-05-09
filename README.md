@@ -1,6 +1,6 @@
 # ACM Basic
 
-[toc]
+[markdown-toc]
 
 ## stack 
 
