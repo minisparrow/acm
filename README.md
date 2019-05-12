@@ -21,49 +21,6 @@
 - 插入元素 Insert
 - 删除元素 Delete
 
-List线性表举例
-```bash
-$cd acm/step1/00_list/
-gcc List.c
-./a.out
-```
-运行结果
-
-```bash
-[Insert]before location 1 Success, PtrL->Last :0
-[Insert]before location 2 Success, PtrL->Last :1
-[Insert]before location 3 Success, PtrL->Last :2
-[Insert]before location 4 Success, PtrL->Last :3
-[Insert]before location 5 Success, PtrL->Last :4
-[Insert]before location 6 Success, PtrL->Last :5
-[Insert]before location 7 Success, PtrL->Last :6
-[Insert]before location 8 Success, PtrL->Last :7
-[Insert]before location 9 Success, PtrL->Last :8
-[Insert]before location 10 Success, PtrL->Last :9
-[Insert]PtrL->Last is 9,List is Full, Insert Failed!
-[Print]data 0: 1
-[Print]data 1: 2
-[Print]data 2: 3
-[Print]data 3: 4
-[Print]data 4: 5
-[Print]data 5: 6
-[Print]data 6: 7
-[Print]data 7: 8
-[Print]data 8: 9
-[Print]data 9: 10
-[Delete]before location 10 Success,PtrL->Last :8
-[Delete]before location 9 Success,PtrL->Last :7
-[Delete]before location 8 Success,PtrL->Last :6
-[Delete]before location 7 Success,PtrL->Last :5
-[Delete]before location 6 Success,PtrL->Last :4
-[Delete]before location 5 Success,PtrL->Last :3
-[Delete]before location 4 Success,PtrL->Last :2
-[Delete]before location 3 Success,PtrL->Last :1
-[Delete]before location 2 Success,PtrL->Last :0
-[Delete]before location 1 Success,PtrL->Last :-1
-[Delete]Location is illegal,Delete Failed
-```
-
 ## Stack
 
 push()  压栈  
