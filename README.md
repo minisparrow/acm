@@ -21,9 +21,13 @@
 - 插入元素 Insert
 - 删除元素 Delete
 
+List线性表举例
+```bash
 $cd acm/step1/00_list/
 gcc List.c
 ./a.out
+```
+运行结果
 
 ```bash
 [Insert]before location 1 Success, PtrL->Last :0
