@@ -8,6 +8,8 @@
         - [1.2.1. 数组存储线性表](#121-数组存储线性表)
         - [1.2.2. 链式存储线性表](#122-链式存储线性表)
     - [1.3. Stack](#13-stack)
+        - [1.3.1. 用数组实现stack](#131-用数组实现stack)
+        - [1.3.2. 用链表实现stack](#132-用链表实现stack)
     - [1.4. Queue](#14-queue)
     - [1.5. Dynamic Programming](#15-dynamic-programming)
         - [1.5.1. longest_common_sequence  最长公共子序列问题](#151-longest_common_sequence--最长公共子序列问题)
@@ -50,10 +52,86 @@ struct LNode {
 
 ## 1.3. Stack
 
-push()  压栈  
-pop()   弹栈
+Stack： 一种输入输出受限的线性表 FILO(First In Last Out)
 
-查看栈顶元素 top()
+```bash
+//---------------------------------------
+// Stack structure,
+//   |        |
+//   |        |
+//   |________|
+//   |___4____|<--- Top
+//   |___3____|
+//   |___2____|
+//   |___1____|
+//--------------------------------------
+```
+
+### 1.3.1. 用数组实现stack
+stack_array.c
+```bash
+typedef int ElementType;
+typedef int Position;
+struct StackNode {
+        ElementType *Data; /* 存储元素的数组 */
+        Position Top;      /* 栈顶指针 */
+        int MaxSize;       /* 堆栈最大容量 */
+};
+typedef struct StackNode *Stack;
+```
+
+### 1.3.2. 用链表实现stack
+stack_linked.c
+```bash
+typedef int ElementType;
+typedef struct StackNode *PtrToStackNode;
+struct StackNode {
+    ElementType Data; 
+    PtrToStackNode Next; //Point to Next Node
+};
+
+typedef PtrToStackNode Stack;
+```
+用链表实现的Stack，Push元素时，即插入时，插入到链表的头。删除时，删除链表的头元素
+- 插入操作
+```
+//------------------------------
+//链表头节点插入元素
+//------------------------------
+//1. 先建立一个插入元素的临时节点tmpCell
+//2. 该临时节点插入到链表的末尾
+//  ____________        ___________        ___________   
+// | s | next   |----> | 0 | next  |----> | 1 | next  |
+// |___|________|      |___|_______|      |___|_______|
+// S  ->   [S->Next]
+// [Insert] tmpCell
+// S  -> tmpCell ->  [S->Next]
+
+PtrToStackNode tmpCell = (PtrToStackNode) malloc(sizeof(struct StackNode));
+tmpCell->Data = X;
+tmpCell->Next = S->Next;
+S->Next = tmpCell;
+```
+
+- 删除操作
+```
+//------------------------------
+//链表头节点删除元素
+//------------------------------
+//  ____________        ___________        ___________   
+// | s | next   |----> | 0 | next  |----> | 1 | next  |
+// |___|________|      |___|_______|      |___|_______|
+// S  ->  [S->Next] -> S->Next->Next
+// Delete
+// S  ->  S->Next->Next
+
+PtrToStackNode tmpCell = S->Next;
+ElementType tmpData = tmpCell->Data;
+S->Next = tmpCell->Next;
+free(tmpCell);
+```
+
+
 
 ## 1.4. Queue
 
