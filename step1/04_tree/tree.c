@@ -108,3 +108,25 @@ BinTree Delete( BinTree BST, ElementType X )
     }
     return BST;
 }
+
+BinTree BT;
+
+BinTree *CreateTreeNode(ElementType x) //创建节点
+{
+    BinTree node = (BinTree )malloc(sizeof(struct TNode));
+    assert(node);
+    node->Data = x;
+    node->Left = NULL;
+    node->Right = NULL;
+
+    Insert(BT,x);
+    return node;
+}
+
+int main(){
+    CreateTreeNode(1);
+    Insert(BT,2);
+    Insert(BT,3);
+    Insert(BT,4);
+    return 0;
+}
