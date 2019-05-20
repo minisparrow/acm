@@ -14,6 +14,9 @@ struct TNode{ /* 树结点定义 */
     BinTree Left;     /* 指向左子树 */
     BinTree Right;    /* 指向右子树 */
 };
+//---------------------------------------
+// 中序遍历
+//---------------------------------------
 void InorderTraversal( BinTree BT )
 {
     if( BT ) {
@@ -24,6 +27,9 @@ void InorderTraversal( BinTree BT )
     }
 }
  
+//---------------------------------------
+// 前序遍历
+//---------------------------------------
 void PreorderTraversal( BinTree BT )
 {
     if( BT ) {
@@ -33,6 +39,9 @@ void PreorderTraversal( BinTree BT )
     }
 }
  
+//---------------------------------------
+// 后序遍历
+//---------------------------------------
 void PostorderTraversal( BinTree BT )
 {
     if( BT ) {
@@ -42,6 +51,9 @@ void PostorderTraversal( BinTree BT )
     }
 }
  
+//---------------------------------------
+// 层级遍历
+//---------------------------------------
 // void LevelorderTraversal ( BinTree BT )
 // { 
 //     Queue Q; 
@@ -58,24 +70,118 @@ void PostorderTraversal( BinTree BT )
 //         if ( T->Right )  AddQ( Q, T->Right );
 //     }
 // }
+//---------------------------------------
+//查找（尾递归）
+//---------------------------------------
+Position Find(BinTree BST,ElementType X)
+{
+    if ( !BST )
+    {
+        return NULL;
+    }
 
+    if ( X > BST->Data)
+    {
+        return Find(BST->Right,X);
+    }
+    else if ( X < BST->Data)
+    {
+        return Find(BST->Left,X);
+    }
+    else
+    {
+        return BST;
+    }
+}
+ 
+//---------------------------------------
+//查找（非递归方式）
+//---------------------------------------
+Position IterFind(BinTree BST, ElementType X)
+{
+    while( BST){
+        if ( X > BST->Data)
+        {
+            BST = BST->Right;
+        } else if( X < BST->Data)
+        {
+            BST = BST->Left;
+        } else /*X == BST->Data*/
+        {
+            return BST;  //查找成功，返回找到节点的位置
+        }
+    }
+    return NULL;
+}
+
+//---------------------------------------
+//查找最小元素
+//---------------------------------------
+Position FindMin(BinTree BST)
+{
+    if ( !BST )
+    {
+        return NULL;
+    }
+    else if( ! BST->Left ) //如果没有儿子
+    {
+         return BST; //如果节点没有左儿子，该节点元素就是最小的    
+    }
+    else  //如果有左儿子,沿左分支继续查询
+    {
+        return FindMin(BST->Left); 
+    }
+}
+
+//---------------------------------------
+//查找最大元素
+//---------------------------------------
+Position FindMax(BinTree BST)
+{
+    if ( !BST )
+    {
+        return NULL;
+    }
+    else if( ! BST->Right) //节点没有右儿子,该节点就是最大值
+    {
+        return BST;
+    }
+    else
+    {
+        return FindMax(BST->Right);
+    }
+}
+
+//---------------------------------------
+// 插入元素
+//---------------------------------------
 BinTree Insert( BinTree BST, ElementType X )
 {
     if( !BST ){ /* 若原树为空，生成并返回一个结点的二叉搜索树 */
         BST = (BinTree)malloc(sizeof(struct TNode));
         BST->Data = X;
         BST->Left = BST->Right = NULL;
+        printf("NULL\n");
+        printf("[Insert]Success,Before NULL NODE\n");
     }
     else { /* 开始找要插入元素的位置 */
-        if( X < BST->Data )
+        if( X < BST->Data ){
+            printf("X is smaller \n");
             BST->Left = Insert( BST->Left, X );   /*递归插入左子树*/
+            printf("[Insert]Success\n");
+        }
         else  if( X > BST->Data )
+            printf("X is larger\n");
             BST->Right = Insert( BST->Right, X ); /*递归插入右子树*/
+            printf("[Insert]Success\n");
         /* else X已经存在，什么都不做 */
     }
     return BST;
 }
- 
+
+//---------------------------------------
+// 删除元素
+//---------------------------------------
 BinTree Delete( BinTree BST, ElementType X ) 
 { 
     Position Tmp; 
@@ -109,12 +215,11 @@ BinTree Delete( BinTree BST, ElementType X )
     return BST;
 }
 
-BinTree BT;
 
-BinTree *CreateTreeNode(ElementType x) //创建节点
+BinTree CreateTreeNode(ElementType x) //创建节点
 {
+    BinTree BT;
     BinTree node = (BinTree )malloc(sizeof(struct TNode));
-    assert(node);
     node->Data = x;
     node->Left = NULL;
     node->Right = NULL;
@@ -124,7 +229,8 @@ BinTree *CreateTreeNode(ElementType x) //创建节点
 }
 
 int main(){
-    CreateTreeNode(1);
+    BinTree BT;
+    Insert(BT,5);
     Insert(BT,2);
     Insert(BT,3);
     Insert(BT,4);
