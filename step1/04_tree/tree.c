@@ -8,12 +8,14 @@
 typedef int ElementType;
 
 typedef struct TNode *Position;
-typedef Position BinTree; /* 二叉树类型 */
+//typedef Position BinTree; /* 二叉树类型 */
+typedef struct TNode *BinTree;
 struct TNode{ /* 树结点定义 */
     ElementType Data; /* 结点数据 */
     BinTree Left;     /* 指向左子树 */
     BinTree Right;    /* 指向右子树 */
 };
+
 //---------------------------------------
 // 中序遍历
 //---------------------------------------
@@ -22,7 +24,7 @@ void InorderTraversal( BinTree BT )
     if( BT ) {
         InorderTraversal( BT->Left );
         /* 此处假设对BT结点的访问就是打印数据 */
-        printf("%d ", BT->Data); /* 假设数据为整型 */
+        printf("%d\n", BT->Data); /* 假设数据为整型 */
         InorderTraversal( BT->Right );
     }
 }
@@ -33,7 +35,7 @@ void InorderTraversal( BinTree BT )
 void PreorderTraversal( BinTree BT )
 {
     if( BT ) {
-        printf("%d ", BT->Data );
+        printf("%d\n", BT->Data );
         PreorderTraversal( BT->Left );
         PreorderTraversal( BT->Right );
     }
@@ -47,7 +49,7 @@ void PostorderTraversal( BinTree BT )
     if( BT ) {
         PostorderTraversal( BT->Left );
         PostorderTraversal( BT->Right );
-        printf("%d ", BT->Data);
+        printf("%d\n", BT->Data);
     }
 }
  
@@ -170,10 +172,11 @@ BinTree Insert( BinTree BST, ElementType X )
             BST->Left = Insert( BST->Left, X );   /*递归插入左子树*/
             printf("[Insert]Success\n");
         }
-        else  if( X > BST->Data )
+        else  if( X > BST->Data ){
             printf("X is larger\n");
             BST->Right = Insert( BST->Right, X ); /*递归插入右子树*/
             printf("[Insert]Success\n");
+        }
         /* else X已经存在，什么都不做 */
     }
     return BST;
@@ -229,10 +232,17 @@ BinTree CreateTreeNode(ElementType x) //创建节点
 }
 
 int main(){
-    BinTree BT;
-    Insert(BT,5);
-    Insert(BT,2);
-    Insert(BT,3);
+    BinTree BT = (BinTree)malloc(sizeof(struct TNode));
+    printf("%d",(int)sizeof(BT));
     Insert(BT,4);
+    Insert(BT,3);
+    Insert(BT,1);
+    Insert(BT,2);
+    Insert(BT,5);
+    InorderTraversal(BT);
+    printf("-------------------\n");
+    PreorderTraversal(BT);
+    printf("-------------------\n");
+    PostorderTraversal(BT);
     return 0;
 }
