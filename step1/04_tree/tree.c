@@ -24,7 +24,7 @@ void InorderTraversal( BinTree BT )
     if( BT ) {
         InorderTraversal( BT->Left );
         /* 此处假设对BT结点的访问就是打印数据 */
-        printf("%d\n", BT->Data); /* 假设数据为整型 */
+        printf("%d ", BT->Data); /* 假设数据为整型 */
         InorderTraversal( BT->Right );
     }
 }
@@ -35,7 +35,7 @@ void InorderTraversal( BinTree BT )
 void PreorderTraversal( BinTree BT )
 {
     if( BT ) {
-        printf("%d\n", BT->Data );
+        printf("%d ", BT->Data );
         PreorderTraversal( BT->Left );
         PreorderTraversal( BT->Right );
     }
@@ -49,7 +49,7 @@ void PostorderTraversal( BinTree BT )
     if( BT ) {
         PostorderTraversal( BT->Left );
         PostorderTraversal( BT->Right );
-        printf("%d\n", BT->Data);
+        printf("%d ", BT->Data);
     }
 }
  
@@ -163,22 +163,12 @@ BinTree Insert( BinTree BST, ElementType X )
         BST = (BinTree)malloc(sizeof(struct TNode));
         BST->Data = X;
         BST->Left = BST->Right = NULL;
-        printf("NULL\n");
-        printf("[Insert]Success,Before NULL NODE\n");
-    }
-    else { /* 开始找要插入元素的位置 */
-        if( X < BST->Data ){
-            printf("X is smaller \n");
+    } else if( X < BST->Data ){
             BST->Left = Insert( BST->Left, X );   /*递归插入左子树*/
-            printf("[Insert]Success\n");
-        }
-        else  if( X > BST->Data ){
-            printf("X is larger\n");
+    } else if( X > BST->Data ){
             BST->Right = Insert( BST->Right, X ); /*递归插入右子树*/
-            printf("[Insert]Success\n");
-        }
-        /* else X已经存在，什么都不做 */
     }
+        /* else X已经存在，什么都不做 */
     return BST;
 }
 
@@ -233,16 +223,18 @@ BinTree CreateTreeNode(ElementType x) //创建节点
 
 int main(){
     BinTree BT = (BinTree)malloc(sizeof(struct TNode));
-    printf("%d",(int)sizeof(BT));
+    BT->Data = 10;
     Insert(BT,4);
     Insert(BT,3);
     Insert(BT,1);
     Insert(BT,2);
     Insert(BT,5);
+    printf("\nInorder Traversal ------------------\n");
     InorderTraversal(BT);
-    printf("-------------------\n");
+    printf("\nPreorder Traversal ------------------\n");
     PreorderTraversal(BT);
-    printf("-------------------\n");
+    printf("\nPostorder Traversal ------------------\n");
     PostorderTraversal(BT);
+    printf("\nDone.\n");
     return 0;
 }
