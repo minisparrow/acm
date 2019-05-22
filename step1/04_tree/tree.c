@@ -224,11 +224,13 @@ BinTree CreateTreeNode(ElementType x) //创建节点
 int main(){
     BinTree BT = (BinTree)malloc(sizeof(struct TNode));
     BT->Data = 10;
+    printf("\n----------------插入操作--------------\n");
     Insert(BT,4);
     Insert(BT,3);
     Insert(BT,1);
     Insert(BT,2);
     Insert(BT,5);
+    printf("\n----------------遍历操作--------------\n");
     printf("\nInorder Traversal ------------------\n");
     InorderTraversal(BT);
     printf("\nPreorder Traversal ------------------\n");
@@ -236,5 +238,12 @@ int main(){
     printf("\nPostorder Traversal ------------------\n");
     PostorderTraversal(BT);
     printf("\nDone.\n");
+
+    printf("\n----------------删除操作--------------\n");
+    Delete(BT,1);
+    Delete(BT,2);
+    Delete(BT,3);
+    printf("\nInorder Traversal ------------------\n");
+    InorderTraversal(BT);
     return 0;
 }
