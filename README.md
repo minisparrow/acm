@@ -11,6 +11,7 @@
         - [1.3.1. 用数组实现stack](#131-用数组实现stack)
         - [1.3.2. 用链表实现stack](#132-用链表实现stack)
     - [1.4. Queue](#14-queue)
+    - [Tree](#tree)
     - [1.5. Dynamic Programming](#15-dynamic-programming)
         - [1.5.1. longest_common_sequence  最长公共子序列问题](#151-longest_common_sequence--最长公共子序列问题)
         - [1.5.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#152-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
@@ -138,6 +139,13 @@ free(tmpCell);
 push()  压入队列  
 pop()   弹出队列
 查看队首元素 front()
+
+## Tree 
+二叉树
+- 树的建立
+- 插入节点
+- 删除节点
+- 遍历节点
 
 ## 1.5. Dynamic Programming
 
