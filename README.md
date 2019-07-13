@@ -11,12 +11,16 @@
         - [1.3.1. 用数组实现stack](#131-用数组实现stack)
         - [1.3.2. 用链表实现stack](#132-用链表实现stack)
     - [1.4. Queue](#14-queue)
-    - [Tree](#tree)
-    - [1.5. Dynamic Programming](#15-dynamic-programming)
-        - [1.5.1. longest_common_sequence  最长公共子序列问题](#151-longest_common_sequence--最长公共子序列问题)
-        - [1.5.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#152-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
-        - [1.5.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#153-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)
-        - [1.5.4. package_problem 背包问题.](#154-package_problem-背包问题)
+    - [1.5. Tree](#15-tree)
+        - [1.5.1. 二叉树](#151-二叉树)
+        - [1.5.2. 平衡二叉树](#152-平衡二叉树)
+        - [1.5.3. 堆 heap](#153-堆-heap)
+            - [1.5.3.1. 堆的抽象数据类型描述](#1531-堆的抽象数据类型描述)
+    - [1.6. Dynamic Programming](#16-dynamic-programming)
+        - [1.6.1. longest_common_sequence  最长公共子序列问题](#161-longest_common_sequence--最长公共子序列问题)
+        - [1.6.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#162-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
+        - [1.6.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#163-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)
+        - [1.6.4. package_problem 背包问题.](#164-package_problem-背包问题)
 
 <!-- /TOC -->
 ## 1.1. Reference
@@ -140,18 +144,37 @@ push()  压入队列
 pop()   弹出队列
 查看队首元素 front()
 
-## Tree 
-二叉树
+## 1.5. Tree 
+
+### 1.5.1. 二叉树
+
 - 树的建立
 - 插入节点
 - 删除节点
 - 遍历节点
 
-## 1.5. Dynamic Programming
+### 1.5.2. 平衡二叉树
+
+### 1.5.3. 堆 heap 
+堆: 是优先队列(Priority Queue),特殊的队列。不是先入先出，而是按照元素的优先权（关键字）大小取出元素。
+
+堆: 可以用优先队列的完全二叉树表示
+
+最大堆(MaxHeap)，最小堆(MinHeap)
+
+#### 1.5.3.1. 堆的抽象数据类型描述
+
+- MaxHeap Create(int MaxSize)  创建一个空的最大堆
+- IsFull(MaxHeap H)    最大堆是否已满
+- IsEmpty(MaxHeap H) 最大堆是否已空
+- Insert(MaxHeap H, ElementType item) 插入元素
+- Delete(MaxHeap H, ElementType item) 删除元素
+
+## 1.6. Dynamic Programming
 
 动态规划可以认为是剪枝的递归算法
 
-### 1.5.1. longest_common_sequence  最长公共子序列问题
+### 1.6.1. longest_common_sequence  最长公共子序列问题
 问题描述
 ```bash
 n = 6
@@ -160,7 +183,7 @@ s = "abcdec"
 t = "becdce"
 最长公共子子序列为: bcde
 ```
-### 1.5.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。
+### 1.6.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。
 求和等于A值问题
 ```bash
 从一堆数字中选择几个，使得能够拼出和为SUM的数
@@ -169,7 +192,7 @@ Sum = 9
 选择arr[i]
 ```
 
-### 1.5.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。
+### 1.6.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。
 
 相邻数字求和最大问题描述
 ```bash
@@ -189,7 +212,7 @@ $python interval_sum_max.py
 ('times', 59.97750972074938)
 ```
 
-### 1.5.4. package_problem 背包问题. 
+### 1.6.4. package_problem 背包问题. 
 背包问题描述
 ```bash
 n = 4
