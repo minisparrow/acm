@@ -11,10 +11,27 @@ class Solution(object):
                 adder = nums[i] + nums[j]
                 if adder == target:
                     return i,j
+    def twoSum_hash(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        mapping = {}
+        length = len(nums)
+        for i in range(0,length):
+            mapping[nums[i]] = i
+
+        for i in range(0,length):
+            gap = target - nums[i]
+            print(mapping[gap])
+            if mapping[gap]:
+                return i,mapping[gap]
+
 
 sln = Solution()
 
-nums = [3,2,4]
-target = 6
-i,j = sln.twoSum(nums,target)
+nums = [2,5,5,11]
+target = 10
+i,j = sln.twoSum_hash(nums,target)
 print(i,j)
