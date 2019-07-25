@@ -1,3 +1,7 @@
+# Problem Description: leetcode_001 
+# https://leetcode-cn.com/problems/two-sum/
+
+
 class Solution(object):
     def twoSum(self, nums, target):
         """
