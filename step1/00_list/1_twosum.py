@@ -17,21 +17,26 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        mapping = {}
-        length = len(nums)
-        for i in range(0,length):
-            mapping[nums[i]] = i
-
-        for i in range(0,length):
-            gap = target - nums[i]
-            print(mapping[gap])
-            if mapping[gap]:
-                return i,mapping[gap]
+        hashmap = {}
+        for idx, num in enumerate(nums):
+            gap = target - num
+            if gap in hashmap:
+                return hashmap[gap],idx
+            hashmap[num] = idx
+        return None
 
 
-sln = Solution()
+def test(nums,target):
+    sln = Solution()
+    i,j = sln.twoSum_hash(nums,target)
+    print(nums,target,"=>",i,j)
 
-nums = [2,5,5,11]
-target = 10
-i,j = sln.twoSum_hash(nums,target)
-print(i,j)
+
+if __name__ == "__main__":
+    nums = [2,5,5,11]
+    target = 10
+    test(nums,target)
+
+    nums = [2,5,11]
+    target = 7
+    test(nums,target)
