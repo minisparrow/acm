@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # leetcode 2:  https://leetcode-cn.com/problems/add-two-numbers/
 # You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 # 
@@ -24,26 +25,24 @@ class Solution(object):
         :type l2: ListNode
         :rtype: ListNode
         """
-        dummpyHead = ListNode(0)
+        curr = ListNode(0)
         p = l1
         q = l2
-        curr = dummpyHead
+        # curr = dummpyHead
+        dummpyHead = curr
         carry = 0
         while p != None or q != None :
+            # 当前直
             x = p.val if (p != None) else 0 
             y = q.val if (q != None) else 0 
             sum = x + y + carry
-
-            carry = sum / 10
-
             curr.next = ListNode(sum%10)
 
+            # 下一个直
+            carry = sum / 10
             curr = curr.next
-
-            if p != None:
-                p = p.next
-            if q != None: 
-                q = q.next
+            p = p.next if (p != None) else p  
+            q = q.next if (q != None) else q
 
         if carry > 0 : 
             curr.next = ListNode(carry)
