@@ -5,7 +5,7 @@ class ListNode(object):
         self.next = next
 
 class List(object):
-    def __init__(self, x):
+    def __init__(self, x = None):
         self.root = ListNode(x)
         self.tailnode = None
         self.length = 0 
@@ -35,6 +35,32 @@ class Solution(object):
         :rtype: ListNode
         """
 
+        def sum_linknode(l):
+           curnode = l.root
+           i = 0 
+           sum_l = 0
+
+           while curnode is not l.tailnode.next:
+               sum_l += curnode.val * 10**i
+               curnode = curnode.next
+               i += 1
+           return sum_l
+
+        sum_l1 = sum_linknode(l1)
+        sum_l2 = sum_linknode(l2)
+
+        sum = sum_l1 + sum_l2 
+
+        print(sum)
+
+        l = List(sum%10)
+        sum = sum/10
+        while sum != 0:
+            l.append(sum%10)
+            sum = sum/10
+
+        l.iter_node()
+
 def test(l1,l2):
     sln = Solution()
     sln.addTwoNumbers(l1,l2)
@@ -49,9 +75,6 @@ if __name__ == "__main__":
     l2.append(5)
     l2.append(6)
 
-    l1.iter_node()
-    l2.iter_node()
-
-
-
+    sln = Solution()
+    sln.addTwoNumbers(l1,l2)
 
