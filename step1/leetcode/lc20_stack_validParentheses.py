@@ -1,12 +1,10 @@
 #-*- coding:utf-8 -*-
-import numpy as np
 class stack(object):
     def __init__(self):
         self.topindex = -1
         self.empty = 1
         self.max = 2**15-1
-        #self.element = [0 for i in range(0,self.max)]
-        self.element = np.zeros((1,self.max))
+        self.element = self.max*[0]
     def push(self,char_c):
         if self.topindex != self.max - 1:
            self.topindex += 1
