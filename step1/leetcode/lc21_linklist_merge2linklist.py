@@ -35,17 +35,25 @@ class Solution(object):
         ans = ans.next
         return ans
         
-n1 = ListNode(1)
-n2 = ListNode(3)
-n1.next  = n2
+def create_linklist(list_elems):
+    node = ListNode(0)
+    node_ret = node
+    for i in list_elems: 
+        tmp = ListNode(i)
+        node.next = tmp
+        node = node.next
+    return node_ret.next
 
-m1 = ListNode(5)
-m2 = ListNode(7)
-m1.next = m2
-
-sln = Solution()
-ans = sln.mergeTwoLists(n1,m1)
-
-while ans != None:
-    print(ans.val)
-    ans = ans.next
+if __name__ == "__main__":
+    list1 = [1,2,3]
+    list2 = [4,5,6]
+    
+    linklist1 = create_linklist(list1)
+    linklist2 = create_linklist(list2)
+    
+    sln = Solution()
+    ans = sln.mergeTwoLists(linklist1,linklist2)
+    
+    while ans != None:
+        print(ans.val)
+        ans = ans.next
