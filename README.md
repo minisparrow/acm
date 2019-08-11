@@ -1,5 +1,4 @@
 # 1. ACM Basic
-
 <!-- TOC -->
 
 - [1. ACM Basic](#1-acm-basic)
@@ -7,11 +6,11 @@
     - [1.2. List](#12-list)
         - [1.2.1. 数组存储线性表](#121-数组存储线性表)
         - [1.2.2. 链式存储线性表](#122-链式存储线性表)
-            - [链表数据结构(c)](#链表数据结构c)
-            - [节点(python)](#节点python)
-            - [从数组中创建单向链表(lc83)](#从数组中创建单向链表lc83)
-            - [从数组中创建单项环链表(lc141)](#从数组中创建单项环链表lc141)
-            - [遍历链表的所有节点并打印](#遍历链表的所有节点并打印)
+            - [1.2.2.1. 链表数据结构(c)](#1221-链表数据结构c)
+            - [1.2.2.2. 节点(python)](#1222-节点python)
+            - [1.2.2.3. 从数组中创建单向链表(lc83)](#1223-从数组中创建单向链表lc83)
+            - [1.2.2.4. 从数组中创建单项环链表(lc141)](#1224-从数组中创建单项环链表lc141)
+            - [1.2.2.5. 遍历链表的所有节点并打印](#1225-遍历链表的所有节点并打印)
     - [1.3. Stack](#13-stack)
         - [1.3.1. 用数组实现stack](#131-用数组实现stack)
         - [1.3.2. 用链表实现stack](#132-用链表实现stack)
@@ -29,6 +28,7 @@
     - [1.7. leetcode](#17-leetcode)
 
 <!-- /TOC -->
+
 ## 1.1. Reference
 1. [浙大DSA](https://www.icourse163.org/learn/ZJU-93001?tid=1003997005#/learn/content)
 ## 1.2. List
@@ -49,7 +49,7 @@ struct LNode{
 
 ### 1.2.2. 链式存储线性表
 
-#### 链表数据结构(c)
+#### 1.2.2.1. 链表数据结构(c)
    ```bash
    typedef struct LNode *PtrToLNode;
    struct LNode {
@@ -58,14 +58,14 @@ struct LNode{
    }
    ```
 
-#### 节点(python)
+#### 1.2.2.2. 节点(python)
    ```
    class ListNode(object):
        def __init__(self, x):
            self.val = x
            self.next = None
    ```
-#### 从数组中创建单向链表(lc83)
+#### 1.2.2.3. 从数组中创建单向链表(lc83)
    ```
    def create_linklist(list_elems):
        node = ListNode(0)
@@ -77,7 +77,7 @@ struct LNode{
        return node_ret.next
    ```
 
-#### 从数组中创建单项环链表(lc141)
+#### 1.2.2.4. 从数组中创建单项环链表(lc141)
    ```
    def create_cycle_linklist(list_elems,pos):
        node = ListNode(0)
@@ -98,7 +98,7 @@ struct LNode{
           node.next = node_ret
        return start
    ```
-#### 遍历链表的所有节点并打印
+#### 1.2.2.5. 遍历链表的所有节点并打印
    ```
    def transverse(node):
        while node != None:
