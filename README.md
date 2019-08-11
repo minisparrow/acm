@@ -7,6 +7,11 @@
     - [1.2. List](#12-list)
         - [1.2.1. 数组存储线性表](#121-数组存储线性表)
         - [1.2.2. 链式存储线性表](#122-链式存储线性表)
+            - [链表数据结构(c)](#链表数据结构c)
+            - [节点(python)](#节点python)
+            - [从数组中创建单向链表(lc83)](#从数组中创建单向链表lc83)
+            - [从数组中创建单项环链表(lc141)](#从数组中创建单项环链表lc141)
+            - [遍历链表的所有节点并打印](#遍历链表的所有节点并打印)
     - [1.3. Stack](#13-stack)
         - [1.3.1. 用数组实现stack](#131-用数组实现stack)
         - [1.3.2. 用链表实现stack](#132-用链表实现stack)
@@ -21,6 +26,7 @@
         - [1.6.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#162-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
         - [1.6.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#163-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)
         - [1.6.4. package_problem 背包问题.](#164-package_problem-背包问题)
+    - [1.7. leetcode](#17-leetcode)
 
 <!-- /TOC -->
 ## 1.1. Reference
@@ -43,17 +49,63 @@ struct LNode{
 
 ### 1.2.2. 链式存储线性表
 
-```bash
-typedef struct LNode *PtrToLNode;
-struct LNode {
-    int Data;
-    PtrToLNode Next;
-}
-```
+#### 链表数据结构(c)
+   ```bash
+   typedef struct LNode *PtrToLNode;
+   struct LNode {
+       int Data;
+       PtrToLNode Next;
+   }
+   ```
 
-- Find
-- Insert
-- Delete
+#### 节点(python)
+   ```
+   class ListNode(object):
+       def __init__(self, x):
+           self.val = x
+           self.next = None
+   ```
+#### 从数组中创建单向链表(lc83)
+   ```
+   def create_linklist(list_elems):
+       node = ListNode(0)
+       node_ret = node
+       for i in list_elems: 
+           tmp = ListNode(i)
+           node.next = tmp
+           node = node.next
+       return node_ret.next
+   ```
+
+#### 从数组中创建单项环链表(lc141)
+   ```
+   def create_cycle_linklist(list_elems,pos):
+       node = ListNode(0)
+       node_ret = node
+       # 先构建链表从头到尾
+       for i in list_elems: 
+           tmp = ListNode(i)
+           node.next = tmp
+           node = node.next
+
+       # 再来连接环的节点
+       start = node_ret.next 
+       if pos != -1:
+          for i in range(0,len(list_elems)):
+              node_ret = node_ret.next
+              if i == pos:
+                  break
+          node.next = node_ret
+       return start
+   ```
+#### 遍历链表的所有节点并打印
+   ```
+   def transverse(node):
+       while node != None:
+           print(node.val)
+           node = node.next
+   ```
+   
 
 ## 1.3. Stack
 
@@ -221,4 +273,23 @@ v = 3, 2, 4, 2
 W = 5
 n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使得总重量为W，价值总和最高的方案
 ```
+
+
+## 1.7. leetcode 
+
+* [x] 1. 两数之和
+* [x] 2. 两数相加(链表)
+* [x] 3. 无重复字符的最长子串
+* [ ] 4. 寻找两个有序数组的中位数 
+* [x] 5. 最长回文子串(动态规划)
+* [x] 6. Z字形变换
+* [x] 7. 整数反转
+* [x] 8. 字符串转整数
+* [x] 9. 回文数
+* [ ] 10. 正则表达式 
+* [x] 11. 盛最多水的容器(双指针)
+* [ ] 12. 整数转罗马数字
+* [x] 13. 罗马数字转整数(hashmap)
+* [x] 14. 最长公共前缀
+
 
