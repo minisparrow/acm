@@ -30,7 +30,10 @@ class Solution(object):
                        curr = curr.next
             return head_ret
                 
-
+def transverse(node):
+    while node != None:
+        print(node.val)
+        node = node.next
     
 def create_linklist(list_elems):
     node = ListNode(0)
@@ -43,13 +46,15 @@ def create_linklist(list_elems):
 
 if __name__ == "__main__":
     list1 = [1,2,3,3,3,3,4,4,5,5]
-    list1 = []
-    
     linklist1 = create_linklist(list1)
+
+    # transverse(linklist1)
     
     sln = Solution()
     ans = sln.deleteDuplicates(linklist1)
     
-    while ans != None:
-        print(ans.val)
-        ans = ans.next
+    # while ans != None:
+    #     print(ans.val)
+    #     ans = ans.next
+
+    transverse(ans)
