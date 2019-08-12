@@ -30,11 +30,14 @@ class Solution(object):
                        curr = curr.next
             return head_ret
                 
-def transverse(node):
-    while node != None:
-        print(node.val)
-        node = node.next
     
+def transverse(node):
+    node_list = []
+    while node != None:
+        node_list.append(node.val)
+        node = node.next
+    print(node_list)
+
 def create_linklist(list_elems):
     node = ListNode(0)
     node_ret = node

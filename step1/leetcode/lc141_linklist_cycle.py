@@ -46,10 +46,11 @@ def create_cycle_linklist(list_elems,pos):
     return start
 
 def transverse(node):
+    node_list = []
     while node != None:
-        print(node.val)
+        node_list.append(node.val)
         node = node.next
-
+    print(node_list)
 if __name__ == "__main__":
     list1 = [3,2,0,-4]
     pos = -1
