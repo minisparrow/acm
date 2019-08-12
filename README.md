@@ -101,9 +101,12 @@ struct LNode{
 #### 1.2.2.5. 遍历链表的所有节点并打印
    ```
    def transverse(node):
-       while node != None:
-           print(node.val)
-           node = node.next
+    node_list = []
+    while node != None:
+        node_list.append(node.val)
+        node = node.next
+    print(node_list)
+
    ```
    
 
@@ -276,20 +279,4 @@ n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使
 
 
 ## 1.7. leetcode 
-
-* [x] 1. 两数之和
-* [x] 2. 两数相加(链表)
-* [x] 3. 无重复字符的最长子串
-* [ ] 4. 寻找两个有序数组的中位数 
-* [x] 5. 最长回文子串(动态规划)
-* [x] 6. Z字形变换
-* [x] 7. 整数反转
-* [x] 8. 字符串转整数
-* [x] 9. 回文数
-* [ ] 10. 正则表达式 
-* [x] 11. 盛最多水的容器(双指针)
-* [ ] 12. 整数转罗马数字
-* [x] 13. 罗马数字转整数(hashmap)
-* [x] 14. 最长公共前缀
-
 
