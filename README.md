@@ -14,7 +14,9 @@
     - [1.3. Stack](#13-stack)
         - [1.3.1. 用数组实现stack](#131-用数组实现stack)
         - [1.3.2. 用链表实现stack](#132-用链表实现stack)
+        - [1.3.3. 用队列实现stack(lc225)](#133-用队列实现stacklc225)
     - [1.4. Queue](#14-queue)
+        - [1.4.1. 用stack 实现queue(lc232)](#141-用stack-实现queuelc232)
     - [1.5. Tree](#15-tree)
         - [1.5.1. 二叉树](#151-二叉树)
         - [1.5.2. 平衡二叉树](#152-平衡二叉树)
@@ -191,6 +193,61 @@ S->Next = tmpCell->Next;
 free(tmpCell);
 ```
 
+### 1.3.3. 用队列实现stack(lc225)
+
+```
+class MyStack(object):
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.topindex = -1
+        self.element = []
+        
+
+    def push(self, x):
+        """
+        Push element x onto stack.
+        :type x: int
+        :rtype: None
+        """
+        self.topindex += 1
+        self.element.append(x)
+
+    def pop(self):
+        """
+        Removes the element on top of the stack and returns that element.
+        :rtype: int
+        """
+        if self.topindex != -1:
+            elem = self.element.pop()
+            self.topindex -= 1
+            return elem
+        else:
+            return None
+                    
+    def top(self):
+        """
+        Get the top element.
+        :rtype: int
+        """
+        if self.topindex == -1:
+            return None
+        else:
+            return self.element[self.topindex]
+    
+    def empty(self):
+        """
+        Returns whether the stack is empty.
+        :rtype: bool
+        """
+        if self.topindex == -1:
+            return True 
+        else:
+            return False      
+
+```
 
 
 ## 1.4. Queue
@@ -198,6 +255,57 @@ free(tmpCell);
 push()  压入队列  
 pop()   弹出队列
 查看队首元素 front()
+
+### 1.4.1. 用stack 实现queue(lc232)
+
+两个stack实现queue.
+stk1用于push操作，stk2用于pop操作。
+
+```
+#include <stack>
+#include <iostream>
+class MyQueue {
+
+private:
+    std::stack<int> stk1;
+    std::stack<int> stk2;
+
+public:
+    /** Initialize your data structure here. */
+    MyQueue() {
+    }
+    
+    /** Push element x to the back of queue. */
+    void push(int x) {
+        stk1.push(x);
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    int pop() {
+        int front = peek();
+        stk2.pop();
+        return front;
+    }
+    
+    /** Get the front element. */
+    int peek() {
+        int value;
+        while(stk2.empty()){
+            while(!stk1.empty()){
+                stk2.push(stk1.top());
+                stk1.pop();
+            }
+        }
+        value = stk2.top();
+        return value;
+    }
+    
+    /** Returns whether the queue is empty. */
+    bool empty() {
+        return stk1.empty() && stk2.empty();
+    }
+};
+```
 
 ## 1.5. Tree 
 
