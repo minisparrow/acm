@@ -12,9 +12,11 @@
             - [1.2.2.4. 从数组中创建单项环链表(lc141)](#1224-从数组中创建单项环链表lc141)
             - [1.2.2.5. 遍历链表的所有节点并打印](#1225-遍历链表的所有节点并打印)
     - [1.3. Stack](#13-stack)
-        - [1.3.1. 用数组实现stack](#131-用数组实现stack)
-        - [1.3.2. 用链表实现stack](#132-用链表实现stack)
-        - [1.3.3. 用队列实现stack(lc225)](#133-用队列实现stacklc225)
+        - [1.3.1. 做stack相关leetcode 题目的一个心得](#131-做stack相关leetcode-题目的一个心得)
+        - [1.3.2. c++ 中stack的一些常用操作](#132-c-中stack的一些常用操作)
+        - [1.3.3. 用数组实现stack](#133-用数组实现stack)
+        - [1.3.4. 用链表实现stack](#134-用链表实现stack)
+        - [1.3.5. 用队列实现stack(lc225)](#135-用队列实现stacklc225)
     - [1.4. Queue](#14-queue)
         - [1.4.1. 用stack 实现queue(lc232)](#141-用stack-实现queuelc232)
     - [1.5. Tree](#15-tree)
@@ -116,6 +118,14 @@ struct LNode{
 
 Stack： 一种输入输出受限的线性表 FILO(First In Last Out)
 
+### 1.3.1. 做stack相关leetcode 题目的一个心得
+一定要先在草稿纸上画出具体的操作，想好每一个该怎么做。然后写代码就好写了。
+
+### 1.3.2. c++ 中stack的一些常用操作
+stack.push(val)
+stack.pop()
+stack.empty()
+
 ```bash
 //---------------------------------------
 // Stack structure,
@@ -129,7 +139,7 @@ Stack： 一种输入输出受限的线性表 FILO(First In Last Out)
 //--------------------------------------
 ```
 
-### 1.3.1. 用数组实现stack
+### 1.3.3. 用数组实现stack
 stack_array.c
 ```bash
 typedef int ElementType;
@@ -142,7 +152,7 @@ struct StackNode {
 typedef struct StackNode *Stack;
 ```
 
-### 1.3.2. 用链表实现stack
+### 1.3.4. 用链表实现stack
 stack_linked.c
 ```bash
 typedef int ElementType;
@@ -193,7 +203,7 @@ S->Next = tmpCell->Next;
 free(tmpCell);
 ```
 
-### 1.3.3. 用队列实现stack(lc225)
+### 1.3.5. 用队列实现stack(lc225)
 
 ```
 class MyStack(object):
