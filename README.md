@@ -325,6 +325,41 @@ public:
 - 插入节点
 - 删除节点
 - 遍历节点
+    - 前序遍历 Preorder
+    ```
+    void PreorderTraversal( BinTree BT )
+    {
+        if( BT ) {
+            printf("%d ", BT->Data );
+            PreorderTraversal( BT->Left );
+            PreorderTraversal( BT->Right );
+        }
+    }
+    ```
+    - 中序遍历 Inorder
+    ```
+    void InorderTraversal( BinTree BT )
+    {
+        if( BT ) {
+            InorderTraversal( BT->Left );
+            /* 此处假设对BT结点的访问就是打印数据 */
+            printf("%d ", BT->Data); /* 假设数据为整型 */
+            InorderTraversal( BT->Right );
+        }
+    }
+    ```
+    - 后续遍历 Postorder
+    ```
+    void PostorderTraversal( BinTree BT )
+    {
+        if( BT ) {
+            PostorderTraversal( BT->Left );
+            PostorderTraversal( BT->Right );
+            printf("%d ", BT->Data);
+        }
+    }
+    ```
+
 
 ### 1.5.2. 平衡二叉树
 
