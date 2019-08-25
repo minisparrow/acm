@@ -325,40 +325,15 @@ public:
 - 插入节点
 - 删除节点
 - 遍历节点
-    - 前序遍历 Preorder
-    ```
-    void PreorderTraversal( BinTree BT )
-    {
-        if( BT ) {
-            printf("%d ", BT->Data );
-            PreorderTraversal( BT->Left );
-            PreorderTraversal( BT->Right );
-        }
-    }
-    ```
-    - 中序遍历 Inorder
-    ```
-    void InorderTraversal( BinTree BT )
-    {
-        if( BT ) {
-            InorderTraversal( BT->Left );
-            /* 此处假设对BT结点的访问就是打印数据 */
-            printf("%d ", BT->Data); /* 假设数据为整型 */
-            InorderTraversal( BT->Right );
-        }
-    }
-    ```
-    - 后续遍历 Postorder
-    ```
-    void PostorderTraversal( BinTree BT )
-    {
-        if( BT ) {
-            PostorderTraversal( BT->Left );
-            PostorderTraversal( BT->Right );
-            printf("%d ", BT->Data);
-        }
-    }
-    ```
+  - 二叉树的前序遍历 [lc144]
+  - 二叉树的中序遍历 [lc94]
+  - 二叉树的后序遍历 [lc145]
+  - 二叉树的层次遍历,自顶向下 [lc102]
+  - 二叉树的层次遍历,自底向上 [lc107]
+  - 从前序和中序遍历序列构造树 [lc105]
+  - 从后序和中序遍历序列构造树 [lc106]
+  - 对称树 [lc101]
+  - 相同树 [lc100]
 
 
 ### 1.5.2. 平衡二叉树
