@@ -214,16 +214,16 @@ void write2dot(BinTree tree, FILE* fw)
 		return ;
 	else
 	{
-		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = black, fontcolor = white, style = filled];\n", tree->Data, tree->Data);
+		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = green, fontcolor = black, style = filled];\n", tree->Data, tree->Data);
 	}
 	if(tree->Left)
 	{
-		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = black, fontcolor = white, style = filled];\n", tree->Left->Data, tree->Left->Data);
+		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = green, fontcolor = black, style = filled];\n", tree->Left->Data, tree->Left->Data);
 		fprintf(fw, "%d:f0:sw -> %d:f1;\n", tree->Data, tree->Left->Data);
 	}
 	if(tree->Right)
 	{
-		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = black, fontcolor = white, style = filled];\n", tree->Right->Data, tree->Right->Data);
+		fprintf(fw, "%d [label = \"<f0> | <f1> %d | <f2> \", color = green, fontcolor = black, style = filled];\n", tree->Right->Data, tree->Right->Data);
 		fprintf(fw, "%d:f2:se -> %d:f1;\n", tree->Data, tree->Right->Data);
 	}
 	write2dot(tree->Left, fw);
@@ -237,7 +237,7 @@ void visualization(BinTree tree, char* filename)
 		printf("open file error");
 		exit(0);
 	}
-	fprintf(fw, "digraph\n{\nnode [shape = Mrecord, style = filled, color = black, fontcolor = white];\n");
+	fprintf(fw, "digraph\n{\nnode [shape = Mrecord, style = filled, color = green, fontcolor = black];\n");
 	write2dot(tree, fw);
 	fprintf(fw, "}");
 	fclose(fw);
