@@ -30,6 +30,13 @@
         - [1.6.3. interval_sum_max 从一堆数字中，任选几个不相邻的数字，使得求和最大。](#163-interval_sum_max-从一堆数字中任选几个不相邻的数字使得求和最大)
         - [1.6.4. package_problem 背包问题.](#164-package_problem-背包问题)
     - [1.7. leetcode](#17-leetcode)
+        - [数据结构](#数据结构)
+        - [算法](#算法)
+    - [1.8. python 函数与 c++ 函数功能对应](#18-python-函数与-c-函数功能对应)
+        - [1.8.1. list后加入元素a](#181-list后加入元素a)
+        - [1.8.2. list子串[a:b)](#182-list子串ab)
+        - [最大直，最小直](#最大直最小直)
+    - [c++ 数据结构常用api](#c-数据结构常用api)
 
 <!-- /TOC -->
 
@@ -407,4 +414,93 @@ n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使
 
 
 ## 1.7. leetcode 
+
+### 数据结构
+
+数组
+链表
+二叉树
+二叉搜索树
+二叉平衡树
+堆
+栈
+图
+
+### 算法
+
+各种排序算法
+动态规划
+贪心算法
+递归算法
+
+
+
+
+## 1.8. python 函数与 c++ 函数功能对应
+
+从键盘输入一行以空格为分割符的数字，传给arr_数组.
+Python
+```python
+arr_ = map(int,input().split())
+arr_list = []
+for i in arr_:
+    arr_list.append(i)
+```
+
+C++
+```c++
+vector<int> arr_list;
+string str_;
+int n;
+getline(cin,str_);
+stringstream ss(str_);
+while(ss>>n){
+    arr_list.push_back(n);
+} 
+
+```
+
+### 1.8.1. list后加入元素a
+Python
+```python
+list_.append(a)
+```
+
+c++
+```c++
+list_.push_back(a)
+```
+
+### 1.8.2. list子串[a:b)
+Python
+```python
+list_[a:b]
+```
+c++
+```c++
+vector<int> list_;
+vector<int> list_sub(list_.begin()+a,list_.begin()+b);
+```
+
+
+### 最大直，最小直
+Python
+```python
+max(list_)
+min(list_)
+```
+c++
+```c++
+*max_element(vector_.begin(),vector_.end());
+*min_element(vector_.begin(),vector_.end());
+```
+
+## c++ 数据结构常用api
+
+
+
+
+
+
+
 
