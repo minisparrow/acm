@@ -8,53 +8,62 @@ int main()
 {
     int nKeywords;
     cin >> nKeywords;
+    // ------------------------------------------------
+    // keywords 
+    // ------------------------------------------------
     vector<string> vecKeyword(nKeywords);
     string sentence;
     for(int i = 0; i < nKeywords; i++) {
         cin >> vecKeyword[i];
     }
-    vector<int> index;
+    vector<int> match_index;
+    // ------------------------------------------------
+    // sentence 
+    // ------------------------------------------------
     cin >> sentence;
 
+    // ------------------------------------------------
+    // match_index 
+    // ------------------------------------------------
     for (int i = 0; i < nKeywords; i++){
         size_t found = sentence.find(vecKeyword[i]);
         if (found != string::npos) {
            for(int j = 0; j < vecKeyword[i].size(); j++){
-              index.push_back(found);
+              match_index.push_back(found);
               found++;
            }
         }
     }
 
-    sort(index.begin(),index.end());
-    index.erase(unique(index.begin(),index.end()),index.end());
-    //for(int i = 0; i < index.size(); i++){
-    //    cout << index[i] << endl;
-    //}
-    vector<int> label;
-    label.push_back(index[0]);
-    for(int i = 1; i < index.size()-1; i++){
-        if (index[i] == index[i-1] + 1) {
+    sort(match_index.begin(),match_index.end());
+    match_index.erase(unique(match_index.begin(),match_index.end()),match_index.end());
+    // ------------------------------------------------
+    // peek point 
+    // ------------------------------------------------
+    vector<int> peekPoint;
+    peekPoint.push_back(match_index[0]);
+    for(int i = 1; i < match_index.size()-1; i++){
+        if (match_index[i] == match_index[i-1] + 1) {
             continue;
         } else {
-            label.push_back(index[i-1]);
-            label.push_back(index[i]);
+            peekPoint.push_back(match_index[i-1]);
+            peekPoint.push_back(match_index[i]);
         }
     }
-    label.push_back(index[index.size()-1]);
+    peekPoint.push_back(match_index[match_index.size()-1]);
 
-    // for(int i = 0; i < label.size(); i++){
-    //     cout << label[i] << " ";
+    // for(int i = 0; i < peekPoint.size(); i++){
+    //     cout << peekPoint[i] << " ";
     // }
     // cout << endl;
     
     int j = 0;
     for(int i = 0; i < sentence.size(); i++){
-        if (i == label[j] && j % 2 == 0) {
+        if (i == peekPoint[j] && j % 2 == 0) {
             cout << "<b>";
             j++;
             cout << sentence[i];
-        } else if (label[j] == i && j % 2 == 1) {
+        } else if (peekPoint[j] == i && j % 2 == 1) {
             cout << sentence[i];
             cout << "<\\b>";
             j++;
