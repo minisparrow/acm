@@ -24,6 +24,9 @@
         - [1.5.2. 平衡二叉树](#152-平衡二叉树)
         - [1.5.3. 堆 heap](#153-堆-heap)
             - [1.5.3.1. 堆的抽象数据类型描述](#1531-堆的抽象数据类型描述)
+    - [图](#图)
+        - [最短路径算法](#最短路径算法)
+            - [Dijkstra 算法](#dijkstra-算法)
     - [1.6. Dynamic Programming](#16-dynamic-programming)
         - [1.6.1. longest_common_sequence  最长公共子序列问题](#161-longest_common_sequence--最长公共子序列问题)
         - [1.6.2. sum_equal_n  从一堆数字中，选择几个，使得能够拼出和为sum的个数。](#162-sum_equal_n--从一堆数字中选择几个使得能够拼出和为sum的个数)
@@ -360,6 +363,14 @@ public:
 - Insert(MaxHeap H, ElementType item) 插入元素
 - Delete(MaxHeap H, ElementType item) 删除元素
 
+## 图
+
+### 最短路径算法
+
+#### Dijkstra 算法
+
+> Dijkstra 思路是维护一个集合 s ，集合内的点是已经确定最短路的点，可以视为一个大整体，每次操作找出距离这个集合最近的点加入集合中，并确定它的最短路为它的上家的最短路+该边权值，存在 dis 中
+
 ## 1.6. Dynamic Programming
 
 动态规划可以认为是剪枝的递归算法
@@ -425,6 +436,7 @@ n个包裹，每个包裹的重量为w[i],价值为v[i],选择几个包裹，使
 堆
 栈
 图
+hash table 
 
 ### 算法
 
