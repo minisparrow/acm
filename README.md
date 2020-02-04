@@ -24,6 +24,7 @@
         - [1.5.2. 平衡二叉树](#152-平衡二叉树)
         - [1.5.3. 堆 heap](#153-堆-heap)
             - [1.5.3.1. 堆的抽象数据类型描述](#1531-堆的抽象数据类型描述)
+    - [BFS](#bfs)
     - [图](#图)
         - [最短路径算法](#最短路径算法)
             - [Dijkstra 算法](#dijkstra-算法)
@@ -363,6 +364,57 @@ public:
 - Insert(MaxHeap H, ElementType item) 插入元素
 - Delete(MaxHeap H, ElementType item) 删除元素
 
+## BFS
+```
+#include <queue>
+#include <vector>
+#include <iostream>
+#include <memory>  //shared_ptr, make_shared
+using namespace std;
+
+class Solution {
+public:
+    int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        bx = grid.size();
+        by = grid[0].size();
+        queue<shared_ptr<Node>> que;
+        if(grid[0][0] || grid[bx-1][by-1]) return -1;
+        que.push(make_shared<Node>(0,0,1));
+        while(que.size()){
+            auto now = que.front();
+            que.pop();
+            if(now->x == bx-1 && now->y == by-1) return now->step;
+            for(int i = 0;i < 8; ++i){
+                int nx = now->x + dir[i][0];
+                int ny = now->y + dir[i][1];
+                if(nx < 0 || nx >= bx || ny < 0 || ny >= by || grid[nx][ny])
+                    continue;
+                que.push(make_shared<Node>(nx, ny, now->step+1));
+                grid[nx][ny] = 1;
+            }
+        }
+        return -1;
+    }
+private:
+    struct Node{
+        int x, y;
+        int step;
+        Node(int _x, int _y, int _s):x(_x),y(_y),step(_s){}
+    };
+    int bx, by;
+    int dir[8][2] = {
+        {0,1},  // 下
+        {0,-1}, // 上
+        {1,1},  // 右下角
+        {1,0},  // 右
+        {1,-1}, // 右上角
+        {-1,0}, // 左
+        {-1,-1},// 左上角
+        {-1,1}  // 左下角
+    };
+};
+```
+
 ## 图
 
 ### 最短路径算法
@@ -508,6 +560,33 @@ c++
 ```
 
 ## c++ 数据结构常用api
+
+共享内存指针
+
+```
+＃include<memory>
+queue<shared_ptr<Node>> que;
+que.push(make_shared<Node>(0,0,1));
+
+struct Node{
+    int x,y;
+    int step;
+    Node(int _x,int _y,int _s):x(_x),y(_y),step(_s){
+    }
+}
+```
+## string 与int的互相转换
+1. string to int 
+stoi(a string)
+
+2. int to string
+to_string(a int )
+
+3. 判断一个string 是否是数字
+比如 "9","-10","+"
+string s;
+s[0] >= '0' && s[0] <= '9' || s[0] == '-' && s.size() > 1
+
 
 
 
