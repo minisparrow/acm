@@ -41,6 +41,8 @@
         - [1.8.2. list子串[a:b)](#182-list子串ab)
         - [最大直，最小直](#最大直最小直)
     - [c++ 数据结构常用api](#c-数据结构常用api)
+    - [string 与int的互相转换](#string-与int的互相转换)
+    - [queue,stack](#queuestack)
 
 <!-- /TOC -->
 
@@ -586,6 +588,20 @@ to_string(a int )
 比如 "9","-10","+"
 string s;
 s[0] >= '0' && s[0] <= '9' || s[0] == '-' && s.size() > 1
+
+##  queue,stack
+> queue
+deque<int> que;
+que.push_back()
+que.pop_back()
+que.push_front()
+que.pop_front()
+
+> stack
+stack<int> stk; 
+stk.push(int);
+stk.pop();
+stk.top();
 
 
 
