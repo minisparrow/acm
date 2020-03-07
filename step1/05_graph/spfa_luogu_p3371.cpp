@@ -58,7 +58,7 @@ void spfa()
   queue<int> q; //spfa用队列，这里用了STL的标准队列
   for(int i = 1; i <= nVertex; i++) {
     dist[i]=inf; //带权图初始化
-    isInqueue[i]=0; //记录点i是否在队列中，同dijkstra算法中的isInqueueited数组
+    isInqueue[i]=0; //记录点i是否在队列中，同dijkstra算法中的isVisited数组
   }
   q.push(start); 
   dist[start]=0; 
